@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Personal Portfolio </title>
+<!-- jQuery-->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Kappe Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="contact.css">
+<!--//fonts-->
+</head>
+<body>
+	<div class="header">
+		<div class="header-left header-contact">
+			<div class="logo">
+				<a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQqHPNzyHPs34RR7JcPVvEhO_teUJAw2sBgN9bfXIa2ThqRDANiLZgcKCu1DaXYyWIHcA&usqp=CAU" alt="profile pic"></a>
+			</div>
+			<div class="top-nav">
+				<ul >
+					<li  ><a href="index.html" >HOME</a></li>
+					<li><a href="work.html" class="black" > WORK</a></li>	
+					<li><a href="about.html" class="black1"> ABOUT</a></li>
+					<li><a href="skills.html" class="black2" > SKILLS</a></li>
+					<li><a href="services.html" class="black3" > SERVICES</a></li>
+					<li class="active"><a href="contact.html" class="black4" > CONTACT</a></li>
+				</ul>
+			</div>
+			<ul class="social-in">
+				<li><a href="#"><i> </i></a></li>
+				<li><a href="#"><i class="gmail"> </i></a></li>
+				<li><a href="#"><i class="twitter"> </i></a></li>
+				<li><a href="#"><i class="pin"> </i></a></li>
+				<li><a href="#"><i class="dribble"> </i></a></li>
+				<li><a href="#"><i class="behance"> </i></a></li>
+			</ul>
+			
+		</div>
+		<!---->
+		<div class="header-top">
+			<div class="logo-in">
+				<a href="index.html"><img src="images/logo.png" alt="pic"></a>
+			</div>
+			<div class="top-nav-in">
+			<span class="menu"><img src="images/menu.png" alt=""> </span>
+				<ul >
+					<li class="active" ><a href="index.html" >HOME</a></li>
+					<li><a href="work.html" class="black" > WORK</a></li>	
+					<li><a href="about.html" class="black1"> ABOUT</a></li>
+					<li><a href="skills.html" class="black2" >SKILLS</a></li>
+					<li><a href="services.html" class="black3" > SERVICES</a></li>
+					<li><a href="contact.html" class="black4" > CONTACT</a></li>
+				</ul>
+				<script>
+					$("span.menu").click(function(){
+						$(".top-nav-in ul").slideToggle(500, function(){
+						});
+					});
+			</script>
+
+			</div>
+			<div class="clear"> </div>
+		</div>
+			<div class="content">
+			<div class="contact-container">
+  <h1>Get in touch with me</h1>
+  <p>I’m always open to new opportunities, collaborations, and learning experiences. If you’d like to discuss a project, ask me a question, or just connect, feel free to reach out!</p>
+
+  <h3>Send me a message</h3>
+  <form action="mailto:najma.pabbas@gmail.com" method="post" enctype="text/plain"id="contactForm" class="contact-form">
+    <div class="form-group">
+      <input type="text" id="name" placeholder="Name" required>
+      <small class="error" id="nameError"></small>
+    </div>
+    <div class="form-group">
+      <input type="email" id="email" placeholder="E-mail" required>
+      <small class="error" id="emailError"></small>
+    </div>
+    <div class="form-group">
+      <input type="text" id="website" placeholder="Website">
+      <small class="error" id="websiteError"></small>
+    </div>
+    <div class="form-group full-width">
+      <textarea id="message" placeholder="Message" rows="5" required></textarea>
+      <small class="error" id="messageError"></small>
+    </div>
+    <button type="submit" class="btn">SEND MESSAGE</button>
+  </form>
+</div>
+
+
+
+<!-- JS Validation -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let valid = true;
+
+  // Clear old errors
+  document.querySelectorAll(".error").forEach(el => el.innerText = "");
+
+  // Get input values
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let website = document.getElementById("website").value.trim();
+  let message = document.getElementById("message").value.trim();
+
+
+  // Name validation
+  
+  if(name === " ") {
+    document.getElementById("nameError").innerText = "Please enter your name.";
+    valid = false;
+  }
+
+  // Email validation
+  if(email === "") {
+    document.getElementById("emailError").innerText = "Please enter your email.";
+    valid = false;
+  } else {
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
+    if(!email.match(emailPattern)) {
+      document.getElementById("emailError").innerText = "Please enter a valid email.";
+      valid = false;
+    }
+  }
+
+// Website validation (optional)
+  if(website !== "" && !website.startsWith("http")) {
+    document.getElementById("websiteError").innerText = "Website should start with http:// or https://";
+    valid = false;
+  }
+
+  // Message validation
+  if(message === "") {
+    document.getElementById("messageError").innerText = "Please enter your message.";
+    valid = false;
+  }
+//final validation
+  if(valid) {
+    alert("Form submitted successfully!");
+    this.reset();
+  }
+});
+</script>     
+        
+	
+			</div>
+			</div>
+		</div>
+		
+
+	</div>
+</body>
+</html>
