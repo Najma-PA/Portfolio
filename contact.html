@@ -13,7 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Kappe Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
+function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="contact.css">
@@ -23,7 +24,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="header-left header-contact">
 			<div class="logo">
-				<a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQqHPNzyHPs34RR7JcPVvEhO_teUJAw2sBgN9bfXIa2ThqRDANiLZgcKCu1DaXYyWIHcA&usqp=CAU" alt="profile pic"></a>
+				<a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQqHPNzyHPs34RR7JcPVvEhO_
+          teUJAw2sBgN9bfXIa2ThqRDANiLZgcKCu1DaXYyWIHcA&usqp=CAU" alt="profile pic"></a>
 			</div>
 			<div class="top-nav">
 				<ul >
@@ -68,39 +70,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</script>
 
 			</div>
-			<div class="clear"> </div>
 		</div>
-			<div class="content">
-			<div class="contact-container">
-  <h1>Get in touch with me</h1>
-  <p>I’m always open to new opportunities, collaborations, and learning experiences. If you’d like to discuss a project, ask me a question, or just connect, feel free to reach out!</p>
+     <div class="layout">
+			<section style="background: #f9f9f9; padding: 50px 0;margin: 3em ; font-family: Arial, sans-serif;">
+  <div style="max-width: 800px; margin: auto; text-align: center;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 10px; color: #333;">Get in touch with me</h2>
+           <p style="font-size: 1rem; color: #555; margin-bottom: 40px;">
+              I’m always open to new opportunities, collaborations, and learning experiences.
+              If you’d like to discuss a project,ask me a question, or just connect, feel free to reach out!
+            </p>
+      
+        <h3 class="send-ms">Send me a message</h3>
+        <form id="contactForm" class="contact-form">
+            <div>
+               <input type="text" id="name" placeholder="Your Name">
+                <span class="error" id="nameError"></span>
+            </div>
 
-  <h3>Send me a message</h3>
-  <form action="mailto:najma.pabbas@gmail.com" method="post" enctype="text/plain"id="contactForm" class="contact-form">
-    <div class="form-group">
-      <input type="text" id="name" placeholder="Name" required>
-      <small class="error" id="nameError"></small>
-    </div>
-    <div class="form-group">
-      <input type="email" id="email" placeholder="E-mail" required>
-      <small class="error" id="emailError"></small>
-    </div>
-    <div class="form-group">
-      <input type="text" id="website" placeholder="Website">
-      <small class="error" id="websiteError"></small>
-    </div>
-    <div class="form-group full-width">
-      <textarea id="message" placeholder="Message" rows="5" required></textarea>
-      <small class="error" id="messageError"></small>
-    </div>
-    <button type="submit" class="btn">SEND MESSAGE</button>
-  </form>
+            <div>
+              <input type="text" id="email" placeholder="Your Email">
+              <span class="error" id="emailError"></span>
+            </div>
+
+            <div>
+              <input type="text" id="website" placeholder="Your Website (optional)">
+              <span class="error" id="websiteError"></span>
+            </div>
+
+            <div>
+              <textarea id="message" placeholder="Message"></textarea>
+              <span class="error" id="messageError"></span>
+            </div>
+
+            <button class="btn-submit" type="submit">SEND MESSAGE</button>
+          </form>
 </div>
-
-
-
+</section>
+</div>
 <!-- JS Validation -->
-<script>
+ <script>
 document.getElementById("contactForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -115,48 +123,50 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   let website = document.getElementById("website").value.trim();
   let message = document.getElementById("message").value.trim();
 
-
-  // Name validation
-  
-  if(name === " ") {
+  // ✅ Name validation (only letters and spaces)
+  let namePattern = /^[A-Za-z\s]{2,}$/;
+  if (name === "") {
     document.getElementById("nameError").innerText = "Please enter your name.";
     valid = false;
+  } else if (!namePattern.test(name)) {
+    document.getElementById("nameError").innerText = "Name must contain only letters (min 2 characters).";
+    valid = false;
   }
 
-  // Email validation
-  if(email === "") {
+  // ✅ Email validation
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+  if (email === "") {
     document.getElementById("emailError").innerText = "Please enter your email.";
     valid = false;
-  } else {
-    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
-    if(!email.match(emailPattern)) {
-      document.getElementById("emailError").innerText = "Please enter a valid email.";
-      valid = false;
-    }
-  }
-
-// Website validation (optional)
-  if(website !== "" && !website.startsWith("http")) {
-    document.getElementById("websiteError").innerText = "Website should start with http:// or https://";
+  } else if (!emailPattern.test(email)) {
+    document.getElementById("emailError").innerText = "Enter a valid email (e.g., name@example.com).";
     valid = false;
   }
 
-  // Message validation
-  if(message === "") {
+  // ✅ Website validation (optional)
+  if (website !== "" && !/^https?:\/\//i.test(website)) {
+    document.getElementById("websiteError").innerText = "Website must start with http:// or https://";
+    valid = false;
+  }
+
+  // ✅ Message validation
+  if (message === "") {
     document.getElementById("messageError").innerText = "Please enter your message.";
     valid = false;
+  } else if (message.length < 10) {
+    document.getElementById("messageError").innerText = "Message must be at least 10 characters.";
+    valid = false;
   }
-//final validation
-  if(valid) {
-    alert("Form submitted successfully!");
+
+  // ✅ Final check
+  if (valid) {
+    alert("Your message has been sent successfully !");
     this.reset();
   }
 });
-</script>     
-        
-	
-			</div>
-			</div>
+</script>
+
+
 		</div>
 		
 
