@@ -302,19 +302,39 @@ ul.social li  i.mes{
 ul.social li  i.down{
 	background-position:-108px -49px;
 }
-.arrow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  text-align: right;
+/*.arrow {
+  position: relative;
+  text-align: center;
     z-index: 9;
+}*/
+
+.header-right {
+
+    position: relative;
+    display: flex;
+   justify-content:center;   
+    align-items: center;   
+    flex-direction: column;    
+    text-align: center;
+    height: 100vh;             
+    width: 100%;
 }
-.arrow img{
-	margin: 0 0 0 70%;
+
+.header-right img {
+    border-radius: 10px;
+    margin-bottom: 30px;/* spacing between image and contact */
+ 
+    
 }
-.arrow-at img{
-	margin:0;
+
+.header-right .arrow {
+    background: rgba(0, 0, 0, 0.6); /* dark transparent background */
+    color: #fff;
+    max-width: 50vh;
+    padding: 20px 40px;
+    border-radius: 10px;
 }
+
 /*--work--*/
 .work{
 	padding:1.5em;
@@ -496,19 +516,28 @@ ul.feature-grid li i{
 	vertical-align: middle;
 	margin:0 13px 0 0;
 }
+
+.layout{
+  display: flex;
+  justify-content: center;
+  
+}
+
 /*--about--*/
 .about{
-	
-	padding:1.5em;
+  display: flex;
+  justify-content: center;
+	padding:1.em;
 	margin:1.5em;
 }
 .about-top,.about-in{
-	float:left;
+
 	width:47.9%;
 }
 .about-top {
+  border-left: 1px solid #D5D3D3;
   border-right: 1px solid #D5D3D3;
-  padding: 0 2% 0 0;
+  padding: 0 2% 0 2%;
 }
 
 .about-in {
@@ -538,6 +567,9 @@ ul.feature-grid li i{
 	padding:2em 0 0;
 	display: block;
 }
+
+
+
 .staff {
   padding: 1em 0;
   border-top: 1px solid #D5D3D3;
@@ -1021,7 +1053,7 @@ label.arrow-in {
    font-size: 1.3em;
     padding: 0.8em;
 }
-.grid-single-in input[type="submit"] {
+/*.grid-single-in input[type="submit"] {
   width: 100%;
   font-size: 1.1em;
   background: #1ab5b3;
@@ -1049,7 +1081,7 @@ label.arrow-in {
 }
 .grid-single {
   margin: 0 2% 0 0;
-}
+}*/
 .archive{
 	padding:0.7em 0 0;
 }
@@ -1971,6 +2003,7 @@ a.just-do {
 }
 .contact h1, .top-contact h3 {
   font-size: 1.1em;
+  padding-bottom: 5px;
 }
 .contact {
   padding: 1em;
@@ -2069,7 +2102,9 @@ h4.author {
 
 .contact-form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+ 
+  justify-content: center;
+  
   gap: 20px;
 }
 
@@ -2112,7 +2147,8 @@ input:focus, textarea:focus {
 
 .error {
   color: red;
-  font-size: 12px;
+  font-size: 14px;
+  display: block;
   margin-top: 4px;
 }
 .contact-container h1,.top-contact h3{
@@ -2125,4 +2161,78 @@ input:focus, textarea:focus {
   line-height: 1.7em;
   font-weight: 300;
   padding: 0 0 1em;
+}
+.btn-submit {
+  background-color: #00c6a9;  
+  color: #fff;                 
+  padding: 12px 24px;          
+  border: none;               
+  border-radius: 6px;          
+  font-weight: bold;
+  cursor: pointer;             
+  width: 100%;                 
+  transition: all 0.3s ease;   
+}
+
+.btn-submit:hover {
+  background-color: #009f85;   
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-submit:active {
+  transform: translateY(0);    
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.send-msg{
+  padding-bottom: 10px;
+}
+
+/* Center content */
+#services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Restrict width on larger screens */
+#services .content {
+  max-width: 600px;
+  width: 90%; /* makes it flexible */
+  margin: 0 auto;
+}
+
+/* Responsive input fields */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Button styling */
+.contact-form .btn {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contact-form .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Make responsive for smaller devices */
+@media (max-width: 768px) {
+  #services {
+    padding: 30px 15px;
+  }
+  #services .content {
+    width: 100%;
+  }
 }
