@@ -527,6 +527,7 @@ ul.feature-grid li i{
 .about{
   display: flex;
   justify-content: center;
+  min-width: 250px;
 	padding:1.em;
 	margin:1.5em;
 }
@@ -535,8 +536,7 @@ ul.feature-grid li i{
 	width:47.9%;
 }
 .about-top {
-  border-left: 1px solid #D5D3D3;
-  border-right: 1px solid #D5D3D3;
+  
   padding: 0 2% 0 2%;
 }
 
@@ -1826,7 +1826,7 @@ span.menu {
 }
 .top-nav-in span.menu{
 	display: block;
-	width:100%;
+  width:100%;
 	text-align: right;
 	cursor:pointer;
 }
@@ -2236,3 +2236,5 @@ input:focus, textarea:focus {
     width: 100%;
   }
 }
+
+
