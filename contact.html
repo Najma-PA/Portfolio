@@ -8,6 +8,18 @@
 <!-- Custom Theme files -->
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "g2nfBQ4dbH1AD1dfU",
+      });
+   })();
+</script>
+
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -109,7 +121,20 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 </section>
 </div>
 <!-- JS Validation -->
- <script>
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "g2nfBQ4dbH1AD1dfU",  //  your EmailJS public key
+      });
+   })();
+</script>
+
+<script>
 document.getElementById("contactForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -159,10 +184,23 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     valid = false;
   }
 
-  // ✅ Final check
+  // ✅ Send email if valid
   if (valid) {
-    alert("Your message has been sent successfully !");
-    this.reset();
+    const templateParams = {
+      name: name,
+      email: email,
+      website: website,
+      message: message
+    };
+
+    emailjs.send("service_0kd1tzg", "template_4v7x4te", templateParams)
+      .then(() => {
+        alert("✅ Your message has been sent successfully!");
+        e.target.reset(); // ✅ clear form fields
+      })
+      .catch((error) => {
+        alert("❌ Failed to send message: " + error.text);
+      });
   }
 });
 </script>
@@ -172,5 +210,6 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 		
 
 	</div>
+
 </body>
 </html>
